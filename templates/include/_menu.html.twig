@@ -1,0 +1,138 @@
+<nav id="menu">
+    <div class="menu-logo"><a href="{{ path('app_home') }}" title="Terrab"><img src="{{ asset('build/images/favicon/favicon-32x32.png') }}" width="32"  height="32" alt="Terrab" /> <span>Terrab</span></a></div>
+</nav>
+{# 
+
+<div id="menu-site-background"></div>
+<nav id="menu-site" class="nav-site">
+    <ul>
+        <li>
+            <a href="{{ path('etre-parents') }}" title="Les parents">Les parents<img src="{{ asset('build/assets/images/icons/angle-down-solid.png') }}" width="15" height="15" alt="Ouvrir menu" class="sub-menu-toggler" /></a>
+            <ul class="sub-menu">
+                <li><a href="{{ path('etre-parents') }}" title="Etre parents">Etre parents</a></li>
+                <li><a href="{{ path('anniversaire/organiser-son-anniversaire') }}" title="Organiser un anniversaire">Anniversaire</a></li>
+                <li><a href="{{ path('trouver-une-sortie-en-famille') }}" title="Les sorties">Les sorties</a></li>
+                <li><a href="{{ path('les-parents/mots-d-enfants') }}" title="Mots d'enfants">Mots d'enfants</a></li>
+                <li><a href="{{ path('les-parents/astuces-de-parents') }}" title="Astuces de parents">Astuces de parents</a></li>
+                <li><a href="{{ path('mobile/les-applications-mobiles') }}" title="Les applications mobiles">Applications mobiles</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:return false;" title="Activités pour vos enfants">Activités pour vos enfants<img src="{{ asset('build/assets/images/icons/angle-down-solid.png') }}" width="15" height="15" alt="Ouvrir menu" class="sub-menu-toggler" /></a>
+            <ul class="sub-menu">
+                <li class="menu-content-col">
+                    <div class="title"><a href="{{ path('content/landing-agebracket', {'agebracket': '3-6-ans'}) }}" title="De 3 à 6 ans">De 3 à 6 ans</a></div>
+                    <ul class="third-menu">
+                        %%sub_menu_3-6-ans%%
+                        <li><a href="{{ path('landing/natoons') }}" title="Univers Natoons">Univers Natoons</a></li>
+                    </ul>
+                </li>
+                <li class="menu-content-col">
+                    <div class="title"><a href="{{ path('content/landing-agebracket', {'agebracket': '6-9-ans'}) }}" title="De 6 à 9 ans">De 6 à 9 ans</a></div>
+                    <ul class="third-menu">
+                        %%sub_menu_6-9-ans%%
+                    </ul>
+                </li>
+                <li class="menu-content-col">
+                    <div class="title"><a href="{{ path('content/landing-agebracket', {'agebracket': '9-12-ans'}) }}" title="De 9 à 12 ans">De 9 à 12 ans</a></div>
+                    <ul class="third-menu">
+                        %%sub_menu_9-12-ans%%
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="{{ path('contest/list') }}" title="Concours">Concours<img src="{{ asset('build/assets/images/icons/angle-down-solid.png') }}" width="15" height="15" alt="Ouvrir menu" class="sub-menu-toggler" /></a>
+            <ul class="sub-menu">
+                %%sub_menu_concours%%
+            </ul>
+        </li>
+
+        <li class="no-hover">
+            <a href="{{ path('voucher/list') }}" title="Les réductions">Les réductions</a>
+        </li>
+
+        <li>
+            <a href="{{ path('kinder-time/home') }}" title="Kinder Time">Kinder Time<img src="{{ asset('build/assets/images/icons/angle-down-solid.png') }}" width="15" height="15" alt="Ouvrir menu" class="sub-menu-toggler" /></a>
+            <ul class="sub-menu sub-menu-kinder-time">
+                <li><a href="{{ path('kinder-time/home') }}" title="Présentation du programme">Présentation du programme</a></li>
+                <li><a href="{{ path('kinder-time/purchase-declaration') }}" title="Déclarer un achat">Déclarer un achat</a></li>
+                <li><a href="{{ path('kinder-time/fidelity-shop') }}" title="Boutique fidelité">Boutique fidelité</a></li>
+                <li><a href="{{ path('kinder-time/my-purchase-declarations') }}" title="Suivre mes déclarations">Suivre mes déclarations</a></li>
+                <li><a href="{{ path('kinder-time/my-prizes') }}" title="Mes cadeaux gagnés">Mes cadeaux gagnés</a></li>
+                <li><a href="{{ path('vos-avantages/offres-partenaires') }}" title="Offres partenaires">Offres partenaires</a></li>
+            </ul>
+        </li>
+
+        <li class="menu-icon hide-mobile">
+            <span href="" title="Recherche" class="link-cameleon btn-global-search"><i class="fas fa-search"></i></span>
+        </li>
+        {% if app.user %}
+            <li class="menu-icon hide-mobile">
+                <div class="pictos-wrapper">
+                    <div class="notifs-wrapper">
+                        <a href="{{ path('votre-espace') }}" title="Votre espace"><i class="fas fa-user"></i></a>
+                        {% if app.session.get(constant('App\\Entity\\User\\User::CRM_NB_NOTIF')) %}
+                            <span class="nb-notifs">{{ app.session.get(constant('App\\Entity\\User\\User::CRM_NB_NOTIF')) }}</span>
+                        {% endif %}
+                    </div>
+                    {% if app.user.fidelityPoints %}
+                        <span class="user-points-fidelite">{{ app.user.fidelityPoints }} pts</span>
+                    {% endif %}
+                </div>
+                <ul class="sub-menu">
+                    <li><a href="{{ path('votre-espace/informations-personnelles') }}" title="Mes informations">Mes informations</a></li>
+                    <li><a href="{{ path('votre-espace/mon-avatar') }}" title="Mon avatar">Mon avatar</a></li>
+                    <li><a href="{{ path('votre-espace') }}" title="Mes points Kinder">Mes points Kinder</a></li>
+                    <li><a href="{{ path('kinder-time/fidelity-shop') }}" title="Ma boutique fidélité">Ma boutique fidélité</a></li>
+                    <li><a href="{{ path('kinder-time/purchase-declaration') }}" title="Déclarer mes achats">Déclarer mes achats</a></li>
+                    <li><a href="{{ path('kinder-time/my-purchase-declarations') }}" title="Mes déclarations d'achats">Mes déclarations d'achats</a></li>
+                </ul>
+            </li>
+            {% if app.session.get('_user_eligible_kdo') is defined and app.session.get('_user_eligible_kdo').available is defined and app.session.get('_user_eligible_kdo').available %}
+                <li class="menu-icon show-mobile">
+                    <a href="" class="btn-modal-anniversaire"><i class="fas fa-gift"></i></a>
+                </li>
+            {% endif %}
+            <li class="menu-icon hide-mobile">
+                <a href="{{ path('logout') }}" title="Se déconnecter"><i class="fas fa-power-off"></i></a>
+            </li>
+        {% else %}
+            <li class="menu-icon hide-mobile">
+                <a href="{{ path('login') }}" title="Se connecter"><i class="fas fa-user"></i></a>
+            </li>
+        {% endif %}
+    </ul>
+</nav>
+<nav id="mobile-icons" class="nav-site">
+    <ul>
+        {% if app.user %}
+            <li class="menu-icon show-mobile notifs-wrapper">
+                <a href="{{ path('votre-espace') }}" title="Votre espace"><i class="fas fa-user"></i></a>
+                {% if app.session.get(constant('App\\Entity\\User\\User::CRM_NB_NOTIF')) %}
+                    <span class="nb-notifs">{{ app.session.get(constant('App\\Entity\\User\\User::CRM_NB_NOTIF')) }}</span>
+                {% endif %}
+            </li>
+            <li class="menu-icon show-mobile">
+                <a href="{{ path('logout') }}" title="Se déconnecter"><i class="fas fa-power-off"></i></a>
+            </li>
+        {% else %}
+            <li class="menu-icon show-mobile">
+                <a href="{{ path('login') }}" title="Se connecter"><i class="fas fa-user"></i></a>
+            </li>
+        {% endif %}
+        {% if app.user and app.user.fidelityPoints %}
+            <li>
+                <span class="user-points-fidelite">{{ app.user.fidelityPoints }} pts</span>
+            </li>
+        {% endif %}
+        {% if app.session.get('_user_eligible_kdo') is defined and app.session.get('_user_eligible_kdo').available is defined and app.session.get('_user_eligible_kdo').available %}
+            <li class="menu-icon show-mobile">
+                <a href="" class="btn-modal-anniversaire"><i class="fas fa-gift"></i></a>
+            </li>
+        {% endif %}
+        <li class="menu-icon menu-mobile-toggle show-mobile">
+            <span href="" title="Ouvrir le menu" class="link-cameleon btn-menu-mobile-toggle"><i class="fas fa-bars"></i></span>
+        </li>
+    </ul>
+</nav> #}

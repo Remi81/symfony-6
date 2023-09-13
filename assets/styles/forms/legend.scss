@@ -1,0 +1,18 @@
+legend{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &:after{
+    content: '\f106';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+  }
+  &.closed{
+    &:after{
+      content: '\f107';
+      font-family: 'Font Awesome 5 Free';
+      font-weight: 900;
+    }
+  }
+}

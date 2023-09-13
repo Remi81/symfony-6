@@ -1,0 +1,39 @@
+@import '_variables';
+
+@mixin is-small{
+  @media (max-width: $deviceSmallBreakpointMin) { @content; }
+}
+@mixin is-mobile {
+    @media (max-width: $deviceMobileBreakpointMax) { @content; }
+}
+
+@mixin box-shadow-generic {
+  box-shadow: $boxShadowGeneric;
+}
+
+@mixin box-shadow-light{
+  box-shadow: 0 3px 6px rgba(0,0,0,.2);
+}
+
+@mixin box-shadow-light-on{
+  box-shadow: 0 3px 6px rgba(77, 234, 172, 0.5);
+}
+
+@mixin img-reponsive{
+  img{
+    max-width: 100%;
+    height: auto;
+  }
+}
+@mixin ul-generic-bullet{
+  list-style: none; /* Remove default bullets */
+
+  li:before{
+      content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+      color: $colorGreen; /* Change the color */
+      font-weight: bold; /* If you want it to be bold */
+      display: inline-block; /* Needed to add space between the bullet and the text */
+      width: 1em; /* Also needed for space (tweak if needed) */
+      margin-left: -1em; /* Also needed for space (tweak if needed) */
+  }
+}

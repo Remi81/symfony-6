@@ -1,0 +1,124 @@
+@import '../_variables';
+@import '../_mixins';
+/********************************************
+BTN GEN
+ */
+
+.btn-gen,
+.btn-gen:focus,
+.btn-gen:hover{
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem;
+  color: $colorText;
+  text-decoration: none;
+  font-family: $fontLink;
+  font-size: 0.94rem;
+  text-align: left;
+  font-weight: 600;
+  background: $colorWhite;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border: 1px solid $colorGreen;
+
+  span{
+    z-index: 1;
+    transition: color 0.3s ease-in-out;
+  }
+
+  &:before{
+    content: '';
+    display: inline-block;
+    background: $colorGreen;
+    transition: width 0.3s ease-in-out;
+    width: 0;
+    height: 100%;
+    position: absolute;
+    z-index: 0;
+    left: 0;
+  }
+
+  &:after {
+    margin: 0 0 0 1rem;
+    font-size: 0;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 1;
+  }
+
+  &.reverse{
+    padding: 0.5rem 2rem 0.5rem 0.5rem;
+    &:after{
+      display: none;
+    }
+    &:before {
+      margin: 0 1rem 0 0;
+      font-size: 1.5rem;
+      background: #ffffff;
+      color: $colorRed;
+      width: 27px;
+      height: 27px;
+      border-radius: 50%;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+  }
+
+  &.bg-blue{
+    background: $colorBlue;
+  }
+
+  &.bg-white {
+    background: $colorWhite;
+    color: $colorRed;
+  }
+
+  &.trash{
+    &:after{
+      content: '\f1f8';
+      font-family: 'Font Awesome 5 Free';
+      font-weight: 900;
+      color: $colorRed;
+    }
+  }
+
+  &.no-after{
+    padding: 0.5rem 1rem;
+    &:after{
+      display: none;
+    }
+  }
+
+  &.no-before{
+    padding: 0.5rem 1rem;
+    &:before{
+      display: none;
+    }
+  }
+
+  &:disabled{
+    filter: grayscale(1);
+    cursor: not-allowed;
+  }
+
+  &:hover{
+    &:before{
+      width: 100%;
+    }
+    span{
+      color: $colorWhite;
+    }
+  }
+
+  &.ultra-big{
+    font-size: 3rem;
+
+    @include is-mobile{
+      font-size: 2rem;
+    }
+  }
+}

@@ -1,0 +1,41 @@
+@import '_reset';
+@import '_variables';
+@import '_fonts';
+@import '_mixins';
+
+@import 'components/container';
+@import 'components/section';
+@import 'components/menu';
+@import 'components/breadcrumb';
+@import 'components/smooth-alert';
+
+body{
+    // background-color: rgb(233, 233, 233);
+    background-color: rgb(243, 243, 243);
+    /* Dark mode */
+    // @media (prefers-color-scheme: dark) {
+    //     background-color: black;
+    // }
+    padding: $heightMenu 0 0 0;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+}
+
+h1{
+    margin: 0 0 2rem 0;
+    font-size: 2rem;
+}
+
+h2{
+    margin: 0 0 1.5rem 0;
+    font-size: 1.5rem;
+}
+
+p{
+    margin: 0 0 1rem 0;
+}
+
+.wysiwyg-wrapper{
+    @include ul-generic-bullet();
+    @include img-reponsive();
+}

@@ -1,0 +1,34 @@
+@import '../_variables';
+@import '../_mixins';
+
+.bloc-image-text{
+    display: flex;
+
+    @include is-mobile{
+        flex-direction: column;
+    }
+
+    &.v-centered{
+        align-items: center;
+    }
+
+    .image{
+        flex-shrink: 0;
+        margin: 0 1rem 0 0;
+
+        @include is-mobile{
+            margin: 0 0 2rem 0;
+        }
+
+        img{
+            max-width: 100%;
+        }
+    }
+    .text{
+        padding: 1rem;
+
+        @include is-mobile{
+            padding: 0;
+        }
+    }
+}

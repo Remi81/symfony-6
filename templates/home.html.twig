@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('import-scss/home') }}
+{% endblock %}
+
+{% block body %}
+    <main>
+        <section class="container-gen">
+            <h1>HOME</h1>
+        </section>
+    </main>
+{% endblock %}

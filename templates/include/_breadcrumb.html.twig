@@ -1,0 +1,34 @@
+{% if no_breadcrumb is not defined %}
+    <div id="breadcrumb">
+        <ul>
+            <li><a class="{% if getBreadcrumbItems()|length == 0 %}last{% endif %}" href="{{ path('app_home') }}"><span>{% trans %}breadcrumb.home{% endtrans %}</span></a>{% if getBreadcrumbItems()|length > 0 %} >{% endif %}</li>
+            {% for item in getBreadcrumbItems() %}
+                <li><a class="{% if loop.last %}last{% endif %}" href="{{ item.url }}"><span>{{ item.text|trans }}</span></a> {% if not loop.last %}>{% endif %} </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Accueil",
+                "item": "{{ absolute_url(path('app_home')) }}"
+            }{% if getBreadcrumbItems()|length > 0 %},{% endif %}
+            {% for item in getBreadcrumbItems() %}
+                {
+                "@type": "ListItem",
+                "position": "{{ loop.index + 1 }}",
+                "name": "{{ item.text|trans }}",
+                "item": "{{ absolute_url(item.url) }}"
+            }{% if not loop.last %},{% endif %}
+        {% endfor %}
+            ]
+        }
+    </script>
+
+{% endif %}

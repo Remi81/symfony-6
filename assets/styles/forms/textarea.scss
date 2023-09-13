@@ -1,0 +1,23 @@
+textarea.generic{
+  width: 100%;
+  height: 70px;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  border-radius: $inputBorderRadius;
+
+  &.big{
+    height: 150px;
+  }
+
+  &.very-big{
+    height: 300px;
+  }
+
+  &:focus{
+    border-color: $colorFocus;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  }
+
+}

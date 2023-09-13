@@ -1,0 +1,5 @@
+.section-content{
+    background-color: $colorWhite;
+    @include box-shadow-generic;
+    padding: 1rem;
+}

@@ -1,0 +1,80 @@
+input.updated{
+  background-color: $colorUpdated;
+}
+
+input{
+  &.form-control{
+    width: 100%;
+    height: 35px;
+    padding: 6px 12px;
+    font-size: 1rem;
+    line-height: 1;
+    border: 1px solid #ccc;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+
+    &:focus{
+      border-color: $colorFocus;
+      box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    }
+
+    &.very-small{
+      width: 100px;
+    }
+    &.percent-50{
+      width: 50%;
+      @media (max-width: $deviceMobileBreakpointMax) {
+        width: 100%;
+      }
+    }
+
+    &:read-only,
+    &:disabled{
+      background: $colorGray;
+      cursor: not-allowed;
+    }
+  }
+
+  .button-hover-input-wrapper{
+    position: relative;
+
+    .hover-input{
+      position: absolute;
+      right: 0;
+      top:0;
+      height:100%;
+      border-radius: 0 0.25rem 0.25rem 0;
+      display: inline-block;
+      background: #ccc;
+      padding: 5px 10px;
+      cursor: pointer;
+
+      i{
+        vertical-align: middle;
+      }
+    }
+  }
+}
+
+
+.input-max-length-wrapper{
+  position: relative;
+
+  .counter{
+    position: absolute;
+    z-index: 2;
+    right: 0;
+    top: 0;
+    height: 100%;
+    background: $colorValid;
+    padding: 0 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0 6px 6px 0;
+
+    &.error{
+      background: $colorError;
+    }
+  }
+}

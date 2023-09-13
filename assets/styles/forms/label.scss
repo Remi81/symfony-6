@@ -1,0 +1,32 @@
+@import "@fortawesome/fontawesome-free/css/all.min.css";
+
+label.control-label{
+  display: block;
+  margin: 0 0 0.5rem 0;
+  font-weight: normal;
+  &:after{
+    display: inline-block;
+    margin: 0 0 0 0.5rem;
+    color: $colorText;
+  }
+
+  &.required{
+    &:after{
+      content: '*';
+      color: $colorRequired;
+    }
+  }
+
+  &.no-after{
+    &:after{
+      content:'';
+    }
+  }
+}
+
+.form-filters{
+  label.control-label:after,
+  label.control-label.required:after{
+    display: none;
+  }
+}

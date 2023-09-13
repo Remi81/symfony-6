@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('import-scss/login') }}
+{% endblock %}
+
+{% block title %}{% trans %}login.h1{% endtrans %}{% endblock %}
+
+{% block body %}
+<main id="main-login">
+    <section class="container-gen">
+        <h1>{% trans %}login.h1{% endtrans %}</h1>
+    </div>
+
+    <section class="container-gen section-content">
+            {% if error %}
+                <div class="smooth-alert error">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+            {% endif %}
+
+            {% if app.user %}
+                <p>
+                    {% trans with {'%email%': app.user.userIdentifier} %}login.already-logged{% endtrans %}, <a href="{{ path('app_logout') }}">{% trans %}login.logout{% endtrans %}</a>
+                </p>
+            {% else %}
+                <form method="post">
+                    <div class="form-group">
+                        <label class="control-label required" for="inputEmail">{% trans %}login.form.email.label{% endtrans %}</label>
+                        <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label required"  for="inputPassword">{% trans %}login.form.password.label{% endtrans %}</label>
+                        <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+                    </div>
+                    
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}" >
+
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" name="_remember_me"> {% trans %}login.form.remember_me.label{% endtrans %}
+                        </label>
+                    </div>
+
+                    <div class="form-group">
+                        <button class="btn-gen" type="submit"><span>{% trans %}login.form.submit{% endtrans %}</span></button>
+                    </div>
+                </form>
+            {% endif %}
+    </section>
+</main>
+{% endblock %}

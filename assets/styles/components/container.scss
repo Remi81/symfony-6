@@ -1,0 +1,11 @@
+.container-gen{
+    max-width: 1520px;
+    margin: 0 auto 2rem auto;
+    padding: 0 1rem;
+
+    &.no-padding-mobile{
+        @include is-mobile{
+            padding: 0;
+        }
+    }
+}

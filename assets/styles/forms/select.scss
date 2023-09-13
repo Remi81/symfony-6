@@ -1,0 +1,50 @@
+label.select-generic{
+  position: relative;
+  display: block;
+
+  &.d-inline-block{
+    display: inline-block;
+  }
+}
+label.select-generic:after{
+  content: url('../../images/icon/arrow-select.png');
+  right: 8px;
+  top: 4px;
+  padding: 0 0 2px;
+  position: absolute;
+  pointer-events: none;
+  line-height: 1.42857;
+  cursor: pointer;
+}
+select.generic{
+  cursor: pointer;
+  position: relative;
+  width: 100%;
+  display: inline-block;
+  font-family: Verdana, sans-serif;
+  font-size: 1rem;
+  padding: 8px 54px 7px 18px;
+  background: #ffffff;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 1px solid $colorGray;
+  color: $colorText;
+  line-height: 1;
+  height: 35px;
+
+  &.default-browser{
+    -webkit-appearance: auto;
+    -moz-appearance: auto;
+    appearance: auto;
+  }
+
+  &:focus{
+    border: 1px solid $colorFocus;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  }
+
+  &.width-auto{
+    width: auto;
+  }
+}

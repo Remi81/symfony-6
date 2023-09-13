@@ -1,0 +1,9 @@
+.nb_characters_missing {
+  display: block;
+  text-align: right;
+  color: $colorError;
+
+  &.valid{
+    color: $validColor;
+  }
+}

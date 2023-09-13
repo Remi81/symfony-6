@@ -1,0 +1,32 @@
+#############################################
+# fichier pour les traductions des labels des forms, des textes sur les pages, du menu, etc...
+
+#############################################
+#############################################
+#############################################
+# MENU
+
+menu.home: 'Accueil'
+
+#############################################
+#############################################
+#############################################
+# BREADCRUMB
+
+breadcrumb.home: 'Accueil'
+
+#############################################
+#############################################
+#############################################
+# PAGES
+
+#############################################
+# LOGIN
+
+login.h1: 'Identifiez-vous'
+login.form.email.label: 'Email'
+login.form.password.label: 'Mot de passe'
+login.form.remember_me.label: 'Se souvenir de moi'
+login.form.submit: 'Identification'
+login.already-logged: 'Vous êtes identifié en tant que %email%'
+login.logout: 'Déconnexion'

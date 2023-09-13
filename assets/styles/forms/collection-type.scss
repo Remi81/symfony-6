@@ -1,0 +1,49 @@
+.collection-item-wrapper{
+  display: flex;
+  justify-content: space-between;
+  padding: 0 0 1rem 0;
+  margin: 0 0 1rem;
+  border-bottom: 2px solid #2a2a2a;
+}
+.collection-item-wrapper div[id^="event"]{
+  display: flex;
+  justify-content: space-between;
+  padding: 0 0 1rem 0;
+  margin: 0 0 1rem;
+  border-bottom: 2px solid #2a2a2a;
+}
+
+.collection-item-wrapper-generic{
+  padding: 1rem 0;
+  margin: 1rem 0;
+  border-bottom: 1px dashed #bababa;
+  border-top: 1px solid #bababa;
+
+  &.flex{
+    >div {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+
+      >div{
+        margin: 0 1rem 1rem 0;
+      }
+    }
+  }
+
+  &.flex-direct{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+
+    >div{
+      margin: 0 1rem 1rem 0;
+    }
+  }
+
+  &.sub-level{
+    padding: 0 0 1rem 2rem;
+    border-bottom: none;
+    border-top: none;
+  }
+}
