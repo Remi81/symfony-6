@@ -8,6 +8,54 @@ nelmio_security:
     content_type:
         nosniff: true
 
+    # prevents inline scripts, unsafe eval, external scripts/images/styles/frames, etc
+    csp:
+        enabled: true
+        hosts: []
+        content_types: []
+        enforce:
+            level1_fallback: false
+            browser_adaptive:
+                enabled: false
+            #recevoir les rapports sans appliquer la politique de sécurité de contenu.
+            #report-uri: '%router.request_context.base_url%/nelmio/csp/report'
+            #définit la politique par défaut utilisée dans tous les cas (fonts, CSS, JavaScript, Frames, etc.) lorsqu’elle a la valeur ‘self’.
+            default-src:
+                - 'self'
+            #définit les sources de scripts autorisées
+            script-src:
+                - 'self'
+                #- 'unsafe-inline' #a decommenter si trop restrictif
+            #définit les sources de feuilles de styles (CSS) autorisées
+            style-src:
+                - 'self'
+                - 'https://fonts.googleapis.com/' # font google
+                #- 'unsafe-inline' # a decommenter si trop restricif
+            #définit les sources de plugins autorisées (ex : <embed> ou <object>)
+            #object-src:
+                # - 'self'
+            #définit les sources d’images ou d’icônes autorisées (ex : rel= »icon », les urls de vos clouds, ...)
+            img-src:
+                - 'self'
+                - 'data:'
+            #définit les sources d’éléments multimédias autorisées (ex : <vidéo>, <audio>)
+            media-src:
+                - 'self'
+            #frame-src : définit les sources autorisées pour le chargement des trames (frame ou iframe)
+            frame-src:
+                #- 'https://www.youtube.com' # exemple
+            #font-src : définit les sources autorisées pour le chargement de fichiers de polices
+            font-src: 
+                - 'self'
+                - 'https://fonts.gstatic.com/' # font google
+            object-src:
+                - 'none'
+            #connect-src : applique la CSP aux connexions à partir d’un XMLHttpRequest (AJAX) ou d’un WebSocket
+            #bade-uri :autorise les URL dans l’attribut src de n’importe quelle balise
+            #add-header: ajoute un en-tête pour la Content Security Policy
+            block-all-mixed-content: true # defaults to false, blocks HTTP content over HTTPS transport
+            # upgrade-insecure-requests: true # defaults to false, upgrades HTTP requests to HTTPS transport
+
     # forces Microsoft's XSS-Protection with
     # its block mode
     xss_protection:
@@ -24,3 +72,12 @@ nelmio_security:
         policies:
             - 'no-referrer'
             - 'strict-origin-when-cross-origin'
+
+when@dev:
+    nelmio_security:
+        csp:
+            enforce:
+                style-src:
+                    - 'self'
+                    - 'https://fonts.googleapis.com/' # font google
+                    - 'unsafe-inline' # pour la debug bar
